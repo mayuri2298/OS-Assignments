@@ -1,0 +1,204 @@
+1. Write a script to create 10 directories, say a1,a2,...,a10
+-&gt;mkdir a1,a2,a3,a4,a5,a6,a7,a8,a9,a10
+
+2. Write a menu based script to perform following string operations
+-&gt;
+
+a) To find length of a string
+-&gt; echo -n hello | wc -m
+
+c) Copying string
+-&gt;
+
+d) Concatenation of strings
+-&gt; obj1=&quot;Hello,&quot;
+obj2=&quot; World&quot;
+obj3=&quot;$obj1$obj2&quot;
+echo &quot;$obj3&quot;
+
+e) Compare two strings
+-&gt;
+obj1=&quot;hello&quot;
+obj2=&quot;world&quot;
+if [ &quot;$obj1&quot; = &quot;$obj2&quot; ]; then
+echo &quot;Strings are equal.&quot;
+else
+echo &quot;Strings are not equal.&quot;
+fi
+
+f) Reversing a string
+-&gt; $ echo welcome | rev
+
+
+3.Write a shell script to rename all files in the current directory with numeric continuous value
+-&gt;
+
+
+4. Write a script that print environment variable(Print
+$HOME,$PATH,$SHELL,$HISTORY,$LOGNAME,$TERM)
+-&gt; echo $HOME, echo $HISTORY, echo $LOGNAME, echo $PATH, echo $TERM, echo $SHELL
+
+
+5. Write a shell script to print all files permissions in current directory(Not name or other details)(Use cut
+commands)
+-&gt;
+
+6. Write a shell script to print all files permissions and name of file
+-&gt; ls -al
+
+7.Write a shell script to print all files name and size greater than 5K
+-&gt;find -type f -name &quot;*.sh&quot; -size +5k -ls
+
+--SHELL_PROGRAMS
+
+1. Write a script To check given year is leap or not.
+-&gt;
+echo &quot;enter a year&quot;
+read YEAR
+if (( ($YEAR % 4) == 0 ))
+
+then
+echo &quot;Given Year Is Leap Year&quot;
+else
+echo &quot;Given Year Is Not Leap Year&quot;
+fi
+
+2. Write a script to print day of the week using
+
+b) case
+echo &quot;enter number between 1 to 7&quot;
+read num
+case $num in
+1) echo &quot;Sunday&quot; ;;
+2) echo &quot;Monday&quot; ;;
+3) echo &quot;Tuesday&quot; ;;
+4) echo &quot;Wednesday&quot; ;;
+5) echo &quot;Thursday&quot; ;;
+6) echo &quot;Friday&quot; ;;
+7) echo &quot;Saturday&quot; ;;
+esac
+
+a) elif
+echo &quot;enter number between 1 to 7&quot;
+read num
+if [[ $num -eq 1 ]]
+then
+echo &quot;Sunday&quot;
+elif [[ $num -eq 2 ]]
+then
+echo &quot;Monday&quot;
+elif [[ $num -eq 3 ]]
+then
+echo &quot;Tuesday&quot;
+lif [[ $num -eq 4]]
+then
+echo &quot;Wednesday&quot;
+lif [[ $num -eq 5]]
+then
+echo &quot;Thursday&quot;
+lif [[ $num -eq 6 ]]
+
+then
+echo &quot;Friday&quot;
+lif [[ $num -eq 7 ]]
+then
+echo &quot;saturday&quot;
+fi
+
+3.
+a) Write a script to find biggest of three no.s
+-&gt;
+echo &quot;enter 1st number&quot;
+read num1
+echo &quot;enter 1st number&quot;
+read num2
+echo &quot;enter 1st number&quot;
+read num3
+if [ $num1 -gt $num2 ] &amp;&amp; [ $num1 -gt $num3 ]
+then
+echo &quot; $num1 is greatest number&quot;
+elif [ $num2 -gt $num1 ] &amp;&amp; [ $num2 -gt $num3 ]
+then
+echo &quot; $num2 is greatest number&quot;
+else
+echo &quot; $num3 is greatest number&quot;
+fi
+
+b) To find avg of 3 no.s, read no.s from keyboard
+-&gt;
+echo &quot;enter 1st number&quot;
+read num1
+echo &quot;enter 1st number&quot;
+read num2
+echo &quot;enter 1st number&quot;
+read num3
+sum=`expr $num1 + $num2 + $num3`
+avg=`expr $sum / 3`
+echo &quot;Sum = $sum&quot;
+echo &quot;Average = $avg&quot;
+
+4. Write a program to check wahether given no.is even or odd
+-&gt;
+
+read -p &quot;Enter a number: &quot; number
+if [ $((number%2)) -eq 0 ]
+then
+echo &quot;Number is even.&quot;
+else
+echo &quot;Number is odd.&quot;
+fi
+
+5. Write a program to print calendar of current month in next year,previous years.
+-&gt;
+
+6.Write a program to find sum and product of two no.s using let,expr,bc
+-&gt;
+
+b) expr
+echo &quot;Enter two numbers&quot;
+read num1 num2
+sum = &#39;expr $num1 + $num2&#39;
+echo &quot;The sum is = $sum&quot;
+
+a) let
+a=10
+b=20
+sum=$(( $a + $b ))
+echo $sum
+
+c) bc
+$ echo &#39;scale=4;10+20&#39; | bc
+
+7. Write a script to generate Fibonacci series.
+N=10
+a=0
+b=1
+echo &quot;The Fibonacci series is : &quot;
+for (( i=0; i&lt;N; i++ ))
+do
+echo -n &quot;$a &quot;
+fn=$((a + b))
+a=$b
+b=$fn
+done
+
+8. Write a shell script to reverse the single strings.
+-&gt;
+echo &quot;hello world&quot;|rev
+
+9.Write a shell script to reverse the list of strings and reverse each string further in the list.
+-&gt;
+
+input=&quot;$1&quot;
+
+reverse=&quot;mayuri&quot;
+len=${#input}
+for (( i=$len-1; i&gt;=0; i-- ))
+do
+reverse=&quot;$reverse${input:$i:1}&quot;
+done
+echo &quot;$reverse&quot;
+10. Write a shell script to print the reverse of an input number.
+-&gt;
+read -p &quot;Enter a number: &quot; num
+echo $num | rev
